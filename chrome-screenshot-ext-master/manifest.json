@@ -1,0 +1,31 @@
+{
+  "name": "karma Screenshot Ext",
+  "version": "1.0",
+  "description": "Take a screenshot of your browser easily!",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_icon": "camera.png",
+    "default_title": "Take a screenshot!",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "camera.png"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "downloads",
+    "desktopCapture"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["capture.js"]
+    }
+  ],
+  "manifest_version": 2,
+  "content_security_policy": "script-src 'self'; object-src 'self'"
+}
